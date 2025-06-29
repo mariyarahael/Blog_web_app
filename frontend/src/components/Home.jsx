@@ -31,8 +31,14 @@ const Home = () => {
       .catch(err => console.log(err))
   }
 
-  const handleUpdate = (blog) => {
-    navigate('/add', { state: { blog } })
+  const handleUpdate = (id) => {
+    navigate('/add', { state: { id } })
+     axios.delete(`http://localhost:3001/update/${id}`)
+      .then(() => {
+        alert("Blog deleted successfully")
+        fetchBlogs() 
+      })
+      .catch(err => console.log(err))
   }
 
   return (
@@ -78,7 +84,7 @@ const Home = () => {
                   <Button 
                     size="small" 
                     color="secondary"
-                    onClick={() => handleUpdate(blog)}
+                    onClick={() => handleUpdate(blog._id)}
                   >
                     Update
                   </Button>

@@ -44,7 +44,7 @@ app.delete('/:id',async(req,res) => {
 }); 
 
 
-app.put('/:id',async(req,res)=>{
+app.put('/update/:id',async(req,res)=>{
      console.log(req.params.id);  
      try{
         await blogs.findByIdAndUpdate(req.params.id,req.body);
