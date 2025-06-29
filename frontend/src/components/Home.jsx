@@ -33,9 +33,9 @@ const Home = () => {
 
   const handleUpdate = (id) => {
     navigate('/add', { state: { id } })
-     axios.delete(`http://localhost:3001/update/${id}`)
+     axios.put(`http://localhost:3001//update/${id}`)
       .then(() => {
-        alert("Blog deleted successfully")
+        alert("Blog updated successfully")
         fetchBlogs() 
       })
       .catch(err => console.log(err))
